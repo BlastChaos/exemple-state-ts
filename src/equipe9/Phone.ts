@@ -5,7 +5,7 @@ export class Phone {
 
 
     private _number:string;
-    private stateActuel:State;
+    stateActuel:State;
     constructor(number:string) {
         this._number = number;
         this.stateActuel = new OffState();

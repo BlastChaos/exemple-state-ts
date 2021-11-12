@@ -1,5 +1,4 @@
-import { Phone } from '../src/Phone';
-import 'jest-extended';
+import { Phone } from '../../src/equipe9/Phone';
   
 let phone: Phone;
 
@@ -38,6 +37,19 @@ describe('PhoneStateTest', () => {
     expect(phone.state).toEqual("ScreenOff");
   });
 
+  it('Devrais pas peser le bouton lorsque nous le pluggons', () => {
+    try {
+      phone.plug(true);
+      phone.pressButton()
+      expect(phone.state).toEqual("ScreenOff");
+    } catch (error) {
+      expect(error.message).toEqual("Boutton non utilisable");
+
+    }
+
+  });
+
+
   // https://jestjs.io/docs/using-matchers
   // it('get initial state'), () => {
   //   expect(typeof (phone.state)).toEqual(ScreenOff);
@@ -55,4 +67,3 @@ describe('PhoneStateTest', () => {
   // }
 
 });
-
